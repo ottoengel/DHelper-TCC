@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.container {
+    background: rgb(33,106,113);
+    background: linear-gradient(90deg, rgba(33,106,113,1) 0%, rgba(37,74,145,1) 78%, rgba(13,56,128,1) 100%);
+}

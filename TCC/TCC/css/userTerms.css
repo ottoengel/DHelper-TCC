@@ -1,0 +1,22 @@
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    text-align:center;
+    padding: 20px;
+}
+
+p {
+    font-size: 20px;
+    margin: 30px 40px;
+    font-family: Helvetica, sans-serif;
+}
+
+ul, li {
+    text-align: left;
+    font-size: 20px;
+    margin: 30px 40px;
+    font-family: Helvetica, sans-serif;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4874bedb022d4ffbb4a94deae8e9358b" Name="Diagram1">
+        <EntityTypeShape EntityType="DHelperModel.Acessibilidade" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DHelperModel.Endereco" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DHelperModel.Estabelecimento" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DHelperModel.EstabelecimentoAcessibilidade" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DHelperModel.Telefone" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DHelperModel.TipoEstabelecimento" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DHelperModel.Usuario" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="DHelperModel.FK__Estabelec__IDAce__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="DHelperModel.FK__Estabelec__IDEnd__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="DHelperModel.FK__Estabelec__IDEst__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="DHelperModel.FK__Estabelec__IDTel__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="DHelperModel.FK__Estabelec__IDTip__300424B4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

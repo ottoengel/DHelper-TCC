@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DHelper | Login</title>
+  <link rel="stylesheet" href="../css/all.css">
+  <link rel="icon" type="image/png" href="assets/img/Logo dhelper.png">
+</head>
+<body>
+    <div class="bg">
+        <div id="main-container">
+            <h1>Login</h1>
+            <img src="../assets/img/Logo_dhelper-removebg-preview.png" alt="Logo" id="logo">
+            <form id="register-form" action="">
+              <div class="full-box spacing">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu e-mail" data-min-length="2" data-email-validate>
+              <div class="half-box">
+                <label for="lastname">Senha</label>
+                <input type="password" name="password" id="password" placeholder="Digite sua senha" data-password-validate data-required>
+              <div>
+                <input type="checkbox" name="agreement" id="agreement">
+                <label for="agreement" id="agreement-label">Eu li e aceito os <a href="./userTerms.html">termos de uso</a></label>
+              </div>
+              <div class="full-box">
+                <input id="btn-submit" type="submit" value="Login">
+              </div>
+            </form>
+            <a href="../views/register.html" id="link">Não possui uma conta? Cadastre-se já</a>
+          </div>
+    </div>
+  <p class="error-validation template"></p>
+  <script src="../TCC/js/index_validation.js"></script>
+  <script src="../js/login.js"></script>
+</body>
+</html>

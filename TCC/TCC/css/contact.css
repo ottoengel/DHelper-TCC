@@ -1,0 +1,149 @@
+@import url('reset.css');
+@import url('base.css');
+@import url('nav.css');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.support{
+	position: relative;
+	padding: 10px 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.support .content{
+	max-width: 800px;
+	text-align: center;
+}
+
+.support .content h2, h3{
+	font-weight: 500;
+	color: #fff;
+	margin-bottom: 15px;
+}
+
+.support .content h2{
+	font-size: 36px;
+}
+
+.container{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+	background: transparent
+}
+
+.container .info{
+	width: 50%;
+	display: flex;
+	justify-content: space-around;
+}
+.container .info .support-box{
+	position: relative;
+	padding: 20px 0;
+	display: flex;
+
+}
+
+.container .info .support-box .icon{
+	min-width: 60px;
+	height: 60px;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	font-size: 25px;
+}
+
+.container .info .support-box .support-item{
+	display: flex;
+	margin-left: 20px;
+	font-size: 16px;
+	color: #fff;
+	flex-direction: column;
+	font-weight: 300;
+}
+
+.container .info .support-box .support-item h3{
+	font-weight: 500;
+	color: #00bcd4;
+}
+
+.support-form{
+	width: 40%;
+	padding: 60px;
+	height: 250px;
+	background-color: #fff;
+	border-radius: 30px;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+.support-form, input, button{
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.support-form h2{
+	font-size: 30px;
+	color: #333;
+	font-weight: 500;
+	text-align: center;
+}
+.support-form .form{
+	position: relative;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.support-form .support-email{
+	border-radius: 10px;
+	margin-top: 10px;
+	height: 40px;
+}
+
+.support-form .support-email input, .support-form .feedback input {
+	padding: 10px;
+	border-radius: 10px;
+	border-color: #00bcd4;
+	outline: none;
+	margin-right: 10px;
+}
+
+.support-form .feedback input::placeholder {
+	font-size: 13px;
+}
+
+
+.support-form .feedback{
+	border-radius: 10px;
+	margin-top: 10px;
+	height: 40px;
+}
+
+.support-form .bnt-form .bnt{
+	background-color: #333;
+	color: #fff;
+	text-decoration: none;
+	border: 2px solid;
+	font-weight: bold;
+	padding: 10px 25px;
+	border-radius: 30px;
+	transition: transform .4s; 
+	cursor: pointer;
+	margin-top: 70px;
+	margin-left: 43px;
+}

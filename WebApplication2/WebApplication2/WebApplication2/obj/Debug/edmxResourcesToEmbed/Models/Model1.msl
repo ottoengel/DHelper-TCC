@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DHelperModelStoreContainer" CdmEntityContainer="DHelperDB2">
+    <EntitySetMapping Name="Acessibilidade">
+      <EntityTypeMapping TypeName="DHelperModel.Acessibilidade">
+        <MappingFragment StoreEntitySet="Acessibilidade">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Endereco">
+      <EntityTypeMapping TypeName="DHelperModel.Endereco">
+        <MappingFragment StoreEntitySet="Endereco">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estabelecimento">
+      <EntityTypeMapping TypeName="DHelperModel.Estabelecimento">
+        <MappingFragment StoreEntitySet="Estabelecimento">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="IDTelefone" ColumnName="IDTelefone" />
+          <ScalarProperty Name="IDEndereco" ColumnName="IDEndereco" />
+          <ScalarProperty Name="IDTipo" ColumnName="IDTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstabelecimentoAcessibilidade">
+      <EntityTypeMapping TypeName="DHelperModel.EstabelecimentoAcessibilidade">
+        <MappingFragment StoreEntitySet="EstabelecimentoAcessibilidade">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDEstabelecimento" ColumnName="IDEstabelecimento" />
+          <ScalarProperty Name="IDAcessibilidade" ColumnName="IDAcessibilidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telefone">
+      <EntityTypeMapping TypeName="DHelperModel.Telefone">
+        <MappingFragment StoreEntitySet="Telefone">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Telefone1" ColumnName="Telefone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoEstabelecimento">
+      <EntityTypeMapping TypeName="DHelperModel.TipoEstabelecimento">
+        <MappingFragment StoreEntitySet="TipoEstabelecimento">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Tipo_estabelecimento" ColumnName="Tipo_estabelecimento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="DHelperModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Sobrenome" ColumnName="Sobrenome" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

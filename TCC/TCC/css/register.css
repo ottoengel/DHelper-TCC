@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('reset.css');
+@import url('base.css');
+
+h1, label, input::placeholder {
+  font-family: 'Poppins', sans-serif;
+}
+
+input, label {
+  display: block;
+  outline: none;
+  width: 100%;
+}
+
+a {
+  color: #2557a8;
+}
+
+body {
+  padding-top: 5vh;
+  background-image: url('../assets/img');
+  background-size: cover;
+  background-position-y: -150px;
+  z-index: 0;
+  background: rgb(33,106,113);
+  background: linear-gradient(90deg, rgba(33,106,113,1) 0%, rgba(37,74,145,1) 78%, rgba(13,56,128,1) 100%);
+}
+
+#main-container {
+  width: 500px;
+  margin-top: -20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFF;
+  border-radius: 10px;
+  padding: 25px;
+  -webkit-box-shadow: 6px 6px 13px -1px #000000; 
+  box-shadow: 6px 6px 13px -1px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+img{
+  width: 400px;
+  margin-left: 45px;
+}
+
+#main-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.full-box {
+  flex: 1 1 100%;
+  position: relative;
+}
+#btn-submit:hover {
+  transform: scale(1.04);
+  transition: .2s;
+  background-color: #153261;
+}
+
+.half-box {
+  flex: 1 1 45%;
+  position: relative;
+}
+
+.spacing {
+  margin-right: 28px;
+}
+
+label {
+  font-weight: bold;
+  font-size: .8rem;
+  margin-bottom: 8px;
+}
+
+input {
+  background-color: #F3F1F1;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: .9rem;
+  margin-bottom: 40px;
+  outline: none;
+  border: none;
+  padding: 16px;
+}
+
+input[type="submit"]{
+  background-color: #2557a8;
+  color: #FFF;
+  border: none;
+  border-radius: 20px;
+  height: 45px;
+  cursor: pointer;
+}
+#agreement{
+    margin-right: 5px;
+}
+#agreement,#agreement-label{
+    display: inline-block;
+    width: auto;
+}
+.error-validation{
+    color: red;
+    position: absolute;
+    top: 57px;
+    font-size: .8rem;
+}
+.template{
+    display: none;
+}
+
+#link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+#link:hover {
+  transform: scale(1.05);
+  transition: .2s;
+  color: #153261;
+}

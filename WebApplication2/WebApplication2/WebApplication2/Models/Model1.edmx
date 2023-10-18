@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DHelperModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Acessibilidade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Endereco">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rua" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Numero" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Estabelecimento">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="IDTelefone" Type="int" />
+          <Property Name="IDEndereco" Type="int" />
+          <Property Name="IDTipo" Type="int" />
+        </EntityType>
+        <EntityType Name="EstabelecimentoAcessibilidade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDEstabelecimento" Type="int" />
+          <Property Name="IDAcessibilidade" Type="int" />
+        </EntityType>
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="TipoEstabelecimento">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo_estabelecimento" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Sobrenome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Estabelec__IDAce__33D4B598">
+          <End Role="Acessibilidade" Type="Self.Acessibilidade" Multiplicity="0..1" />
+          <End Role="EstabelecimentoAcessibilidade" Type="Self.EstabelecimentoAcessibilidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acessibilidade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EstabelecimentoAcessibilidade">
+              <PropertyRef Name="IDAcessibilidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estabelec__IDEnd__2F10007B">
+          <End Role="Endereco" Type="Self.Endereco" Multiplicity="0..1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Endereco">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Estabelecimento">
+              <PropertyRef Name="IDEndereco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estabelec__IDEst__32E0915F">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="0..1" />
+          <End Role="EstabelecimentoAcessibilidade" Type="Self.EstabelecimentoAcessibilidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EstabelecimentoAcessibilidade">
+              <PropertyRef Name="IDEstabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estabelec__IDTel__2E1BDC42">
+          <End Role="Telefone" Type="Self.Telefone" Multiplicity="0..1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefone">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Estabelecimento">
+              <PropertyRef Name="IDTelefone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estabelec__IDTip__300424B4">
+          <End Role="TipoEstabelecimento" Type="Self.TipoEstabelecimento" Multiplicity="0..1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEstabelecimento">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Estabelecimento">
+              <PropertyRef Name="IDTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DHelperModelStoreContainer">
+          <EntitySet Name="Acessibilidade" EntityType="Self.Acessibilidade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estabelecimento" EntityType="Self.Estabelecimento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstabelecimentoAcessibilidade" EntityType="Self.EstabelecimentoAcessibilidade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefone" EntityType="Self.Telefone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEstabelecimento" EntityType="Self.TipoEstabelecimento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Estabelec__IDAce__33D4B598" Association="Self.FK__Estabelec__IDAce__33D4B598">
+            <End Role="Acessibilidade" EntitySet="Acessibilidade" />
+            <End Role="EstabelecimentoAcessibilidade" EntitySet="EstabelecimentoAcessibilidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estabelec__IDEnd__2F10007B" Association="Self.FK__Estabelec__IDEnd__2F10007B">
+            <End Role="Endereco" EntitySet="Endereco" />
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estabelec__IDEst__32E0915F" Association="Self.FK__Estabelec__IDEst__32E0915F">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="EstabelecimentoAcessibilidade" EntitySet="EstabelecimentoAcessibilidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estabelec__IDTel__2E1BDC42" Association="Self.FK__Estabelec__IDTel__2E1BDC42">
+            <End Role="Telefone" EntitySet="Telefone" />
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estabelec__IDTip__300424B4" Association="Self.FK__Estabelec__IDTip__300424B4">
+            <End Role="TipoEstabelecimento" EntitySet="TipoEstabelecimento" />
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DHelperModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Acessibilidade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EstabelecimentoAcessibilidade" Relationship="Self.FK__Estabelec__IDAce__33D4B598" FromRole="Acessibilidade" ToRole="EstabelecimentoAcessibilidade" />
+        </EntityType>
+        <EntityType Name="Endereco">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rua" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Numero" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Estabelecimento" Relationship="Self.FK__Estabelec__IDEnd__2F10007B" FromRole="Endereco" ToRole="Estabelecimento" />
+        </EntityType>
+        <EntityType Name="Estabelecimento">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDTelefone" Type="Int32" />
+          <Property Name="IDEndereco" Type="Int32" />
+          <Property Name="IDTipo" Type="Int32" />
+          <NavigationProperty Name="Endereco" Relationship="Self.FK__Estabelec__IDEnd__2F10007B" FromRole="Estabelecimento" ToRole="Endereco" />
+          <NavigationProperty Name="EstabelecimentoAcessibilidade" Relationship="Self.FK__Estabelec__IDEst__32E0915F" FromRole="Estabelecimento" ToRole="EstabelecimentoAcessibilidade" />
+          <NavigationProperty Name="Telefone" Relationship="Self.FK__Estabelec__IDTel__2E1BDC42" FromRole="Estabelecimento" ToRole="Telefone" />
+          <NavigationProperty Name="TipoEstabelecimento" Relationship="Self.FK__Estabelec__IDTip__300424B4" FromRole="Estabelecimento" ToRole="TipoEstabelecimento" />
+        </EntityType>
+        <EntityType Name="EstabelecimentoAcessibilidade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDEstabelecimento" Type="Int32" />
+          <Property Name="IDAcessibilidade" Type="Int32" />
+          <NavigationProperty Name="Acessibilidade" Relationship="Self.FK__Estabelec__IDAce__33D4B598" FromRole="EstabelecimentoAcessibilidade" ToRole="Acessibilidade" />
+          <NavigationProperty Name="Estabelecimento" Relationship="Self.FK__Estabelec__IDEst__32E0915F" FromRole="EstabelecimentoAcessibilidade" ToRole="Estabelecimento" />
+        </EntityType>
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Telefone1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Estabelecimento" Relationship="Self.FK__Estabelec__IDTel__2E1BDC42" FromRole="Telefone" ToRole="Estabelecimento" />
+        </EntityType>
+        <EntityType Name="TipoEstabelecimento">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo_estabelecimento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Estabelecimento" Relationship="Self.FK__Estabelec__IDTip__300424B4" FromRole="TipoEstabelecimento" ToRole="Estabelecimento" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sobrenome" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Senha" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Estabelec__IDAce__33D4B598">
+          <End Role="Acessibilidade" Type="Self.Acessibilidade" Multiplicity="0..1" />
+          <End Role="EstabelecimentoAcessibilidade" Type="Self.EstabelecimentoAcessibilidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acessibilidade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EstabelecimentoAcessibilidade">
+              <PropertyRef Name="IDAcessibilidade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estabelec__IDEnd__2F10007B">
+          <End Role="Endereco" Type="Self.Endereco" Multiplicity="0..1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Endereco">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Estabelecimento">
+              <PropertyRef Name="IDEndereco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estabelec__IDEst__32E0915F">
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="0..1" />
+          <End Role="EstabelecimentoAcessibilidade" Type="Self.EstabelecimentoAcessibilidade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estabelecimento">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EstabelecimentoAcessibilidade">
+              <PropertyRef Name="IDEstabelecimento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estabelec__IDTel__2E1BDC42">
+          <End Role="Telefone" Type="Self.Telefone" Multiplicity="0..1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Telefone">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Estabelecimento">
+              <PropertyRef Name="IDTelefone" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estabelec__IDTip__300424B4">
+          <End Role="TipoEstabelecimento" Type="Self.TipoEstabelecimento" Multiplicity="0..1" />
+          <End Role="Estabelecimento" Type="Self.Estabelecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEstabelecimento">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Estabelecimento">
+              <PropertyRef Name="IDTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DHelperDB2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Acessibilidade" EntityType="Self.Acessibilidade" />
+          <EntitySet Name="Endereco" EntityType="Self.Endereco" />
+          <EntitySet Name="Estabelecimento" EntityType="Self.Estabelecimento" />
+          <EntitySet Name="EstabelecimentoAcessibilidade" EntityType="Self.EstabelecimentoAcessibilidade" />
+          <EntitySet Name="Telefone" EntityType="Self.Telefone" />
+          <EntitySet Name="TipoEstabelecimento" EntityType="Self.TipoEstabelecimento" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__Estabelec__IDAce__33D4B598" Association="Self.FK__Estabelec__IDAce__33D4B598">
+            <End Role="Acessibilidade" EntitySet="Acessibilidade" />
+            <End Role="EstabelecimentoAcessibilidade" EntitySet="EstabelecimentoAcessibilidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estabelec__IDEnd__2F10007B" Association="Self.FK__Estabelec__IDEnd__2F10007B">
+            <End Role="Endereco" EntitySet="Endereco" />
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estabelec__IDEst__32E0915F" Association="Self.FK__Estabelec__IDEst__32E0915F">
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+            <End Role="EstabelecimentoAcessibilidade" EntitySet="EstabelecimentoAcessibilidade" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estabelec__IDTel__2E1BDC42" Association="Self.FK__Estabelec__IDTel__2E1BDC42">
+            <End Role="Telefone" EntitySet="Telefone" />
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estabelec__IDTip__300424B4" Association="Self.FK__Estabelec__IDTip__300424B4">
+            <End Role="TipoEstabelecimento" EntitySet="TipoEstabelecimento" />
+            <End Role="Estabelecimento" EntitySet="Estabelecimento" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DHelperModelStoreContainer" CdmEntityContainer="DHelperDB2">
+          <EntitySetMapping Name="Acessibilidade">
+            <EntityTypeMapping TypeName="DHelperModel.Acessibilidade">
+              <MappingFragment StoreEntitySet="Acessibilidade">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Endereco">
+            <EntityTypeMapping TypeName="DHelperModel.Endereco">
+              <MappingFragment StoreEntitySet="Endereco">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Rua" ColumnName="Rua" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estabelecimento">
+            <EntityTypeMapping TypeName="DHelperModel.Estabelecimento">
+              <MappingFragment StoreEntitySet="Estabelecimento">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="IDTelefone" ColumnName="IDTelefone" />
+                <ScalarProperty Name="IDEndereco" ColumnName="IDEndereco" />
+                <ScalarProperty Name="IDTipo" ColumnName="IDTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstabelecimentoAcessibilidade">
+            <EntityTypeMapping TypeName="DHelperModel.EstabelecimentoAcessibilidade">
+              <MappingFragment StoreEntitySet="EstabelecimentoAcessibilidade">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDEstabelecimento" ColumnName="IDEstabelecimento" />
+                <ScalarProperty Name="IDAcessibilidade" ColumnName="IDAcessibilidade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefone">
+            <EntityTypeMapping TypeName="DHelperModel.Telefone">
+              <MappingFragment StoreEntitySet="Telefone">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Telefone1" ColumnName="Telefone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEstabelecimento">
+            <EntityTypeMapping TypeName="DHelperModel.TipoEstabelecimento">
+              <MappingFragment StoreEntitySet="TipoEstabelecimento">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tipo_estabelecimento" ColumnName="Tipo_estabelecimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="DHelperModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Sobrenome" ColumnName="Sobrenome" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,90 @@
+@import url('reset.css');
+@import url('base.css');
+
+body{
+    background: rgb(33,106,113);
+      background: linear-gradient(90deg, rgba(33,106,113,1) 0%, rgba(37,74,145,1) 78%, rgba(13,56,128,1) 100%);
+      font-family: 'Poppins', sans-serif;
+}
+  
+header{
+      align-items: center;
+}
+  
+nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 45px;
+      padding-left: 8%;
+      padding-right: 8%;
+      gap: 20px;
+      color: lightskyblue;
+}
+  
+a{
+      text-decoration: none;
+}
+  
+.link:visited{
+      color: lightskyblue;
+}
+
+h2{
+    font-size: 40px;
+}
+  
+span{
+      color: #fff;
+}
+  
+.flex{
+      height: 300px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+}
+  
+.input-search {
+      display: flex;
+      align-items: center;
+      text-align: center;
+}
+
+nav ul li{
+      list-style-type: none;
+      display: inline-block;
+      padding: 10px  25px;
+}
+
+nav ul li a{
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: capitalize;
+}
+
+nav ul li a:hover{
+      color: lightskyblue;
+      transition: .4s;
+}
+
+.btn{
+      background-color: lightskyblue;
+      color: white;
+      text-decoration: none;
+      border: 2px solid transparent;
+      font-weight: bold;
+      padding: 10px 25px;
+      border-radius: 30px;
+      transition: transform .4s; 
+      cursor: pointer;
+}
+
+.btn:hover{
+      transform: scale(1.2);
+}
+  
+svg{
+      width: 30px;
+}

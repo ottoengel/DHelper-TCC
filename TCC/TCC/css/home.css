@@ -1,0 +1,123 @@
+@import url('reset.css');
+@import url('base.css');
+@import url('nav.css');
+
+
+input{
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFF;
+	border-radius: 10px;
+	padding: 15px;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+input::placeholder{
+	color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+input .search{
+	position: relative;
+}
+
+.search{
+  width: 85%;
+  height: 80%;
+  margin-top: -20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFF;
+  border-radius: 10px;
+  padding: 25px;
+  -webkit-box-shadow: 6px 6px 13px -1px #000000; 
+  box-shadow: 6px 6px 13px -1px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+
+.flip-card {
+  background-color: transparent;
+  width: 350px;
+  height: 250px;
+  margin-bottom: 20px;
+  border: 5px solid rgb(33,106,113);
+  perspective: 1000px; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  margin-top: 10px;
+  border-radius: solid  10px;
+  border-style: rgb(33,106,113);
+  background: linear-gradient(90deg, rgba(33,106,113,1) 0%, rgba(37,74,145,1) 78%, rgba(13,56,128,1) 100%);
+}
+
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.flip-card-back {
+  background-color: #fff;
+  color: #000;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back p{
+  margin-top: 20px;
+}
+
+
+#shopping{
+  width: 250px;
+  height: 150px;
+}
+
+#teatro{
+  width: 250px;
+  height: 150px;
+}
+
+#museu{
+  width: 250px;
+  height: 150px;
+}
+
+#bar{
+  width: 250px;
+  height: 150px;
+}

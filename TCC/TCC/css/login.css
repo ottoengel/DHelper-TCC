@@ -1,0 +1,54 @@
+@import url('reset.css');
+@import url('base.css');
+@import url('register.css');
+
+#logo {
+    margin-left: 50px;
+}
+
+label, h1, a {
+    font-family: 'Poppins', sans-serif;
+}
+
+input {
+  background-color: #F3F1F1;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: .9rem;
+  margin-bottom: 40px;
+  outline: none;
+  border: none;
+  padding: 16px;
+}
+
+input::placeholder {
+    color: #757575;
+}
+
+input[type="submit"] {
+    text-align: center;
+}
+
+#btn-submit {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+#btn-submit:hover {
+    transform: scale(1.04);
+    transition: .2s;
+    background-color: #153261;
+}
+
+#link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+  
+  #link:hover {
+    transform: scale(1.05);
+    transition: .2s;
+    color: #153261;
+  }
